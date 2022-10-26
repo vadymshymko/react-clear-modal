@@ -12,6 +12,7 @@ Simple and lightweight modal component for React.js
 - [Installation](#installation)
 - [Usage](#usage)
 - [Props](#props)
+- [Demo](#demo)
 
 ## Installation
 
@@ -80,3 +81,7 @@ export default ReactClearModalExample;
 | **disableCloseOnEsc**       | `boolean`  | `false`       | Prevent modal window from closing when `ESC` key is pressed                                                      |
 | **disableCloseOnBgClick**   | `boolean`  | `false`       | Prevent modal from closing after clicking on modal background                                                    |
 | **disableBodyScrollOnOpen** | `boolean`  | `false`       | Set `{overflow: hidden}` for `document.body` when modal is open                                                  |
+
+## Demo
+
+[![Edit react-clear-modal](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-clear-modal-qdpb48)
