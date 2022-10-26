@@ -22,7 +22,7 @@ export type ReactClearModalProps = {
   disableFocusOnContent?: boolean;
   disableCloseOnEsc?: boolean;
   disableCloseOnBgClick?: boolean;
-  preventBodyScrollOnOpen?: boolean;
+  disableBodyScrollOnOpen?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 function ReactClearModal({
@@ -35,7 +35,7 @@ function ReactClearModal({
   disableFocusOnContent,
   disableCloseOnEsc,
   disableCloseOnBgClick,
-  preventBodyScrollOnOpen,
+  disableBodyScrollOnOpen,
   ...wrapperProps
 }: ReactClearModalProps) {
   const closeTimeoutRef = useRef<any>(null);
@@ -95,14 +95,14 @@ function ReactClearModal({
   useEffect(() => {
     const initialBodyOverlowStyle = document.body.style.overflow;
 
-    if (isOpen && preventBodyScrollOnOpen) {
+    if (isOpen && disableBodyScrollOnOpen) {
       document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.body.style.overflow = initialBodyOverlowStyle;
     };
-  }, [isOpen, preventBodyScrollOnOpen]);
+  }, [isOpen, disableBodyScrollOnOpen]);
 
   if (!isOpen && !preRender) {
     return null;
