@@ -33,7 +33,7 @@ yarn add react-clear-modal
 
 ```js
 import { useState } from 'react';
-import ReactClearModal from 'react-simply-carousel';
+import ReactClearModal from 'react-clear-modal';
 
 function ReactClearModalExample() {
   const [isModalOpen, setIsModalOpen] = useState(false);
