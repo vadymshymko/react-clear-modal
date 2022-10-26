@@ -12,7 +12,7 @@ import {
   useRef,
 } from 'react';
 
-export type ModalComponentProps = {
+export type ReactClearModalProps = {
   isOpen: boolean;
   onRequestClose?: () => void;
   closeTimeout?: number;
@@ -25,7 +25,7 @@ export type ModalComponentProps = {
   preventBodyScrollOnOpen?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-function ModalComponent({
+function ReactClearModal({
   isOpen,
   onRequestClose,
   closeTimeout,
@@ -37,7 +37,7 @@ function ModalComponent({
   disableCloseOnBgClick,
   preventBodyScrollOnOpen,
   ...wrapperProps
-}: ModalComponentProps) {
+}: ReactClearModalProps) {
   const closeTimeoutRef = useRef<any>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -144,4 +144,4 @@ function ModalComponent({
   );
 }
 
-export default memo(ModalComponent);
+export default memo(ReactClearModal);
