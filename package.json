@@ -19,10 +19,12 @@
   },
   "keywords": [
     "react",
-    "react-modal",
-    "react-modal-dialog",
+    "reactjs",
     "modal",
     "dialog",
+    "modal-dialog",
+    "react-modal",
+    "react-modal-dialog",
     "react-component",
     "react-modal-component",
     "typescript"
