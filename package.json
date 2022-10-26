@@ -1,0 +1,86 @@
+{
+  "name": "react-clear-modal",
+  "version": "0.0.1",
+  "description": "Simple and lightweight modal component for React.js",
+  "files": [
+    "dist/"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "rm -rf dist && yarn lint && yarn generate-types && rollup -c",
+    "generate-types": "tsc --emitDeclarationOnly",
+    "lint": "eslint . --ext .tsx",
+    "prepare": "husky install",
+    "prepublish": "yarn build",
+    "check-types": "tsc --noEmit"
+  },
+  "keywords": [
+    "react",
+    "react-modal",
+    "react-modal-dialog",
+    "modal",
+    "dialog",
+    "react-component",
+    "react-modal-component",
+    "typescript"
+  ],
+  "author": "Vadym Shymko <vadymshymko@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vadymshymko/react-clear-modal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vadymshymko/react-clear-modal/issues"
+  },
+  "homepage": "https://github.com/vadymshymko/react-clear-modal#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "2.6.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "rollup": "^2.72.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "core-js": "^3.8.1"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.8 || ^17 || ^18",
+    "react": "^16.8 || ^17 || ^18",
+    "react-dom": "^16.8 || ^17 || ^18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,tsx}": "eslint --cache --fix",
+    ".": "prettier --write"
+  }
+}
