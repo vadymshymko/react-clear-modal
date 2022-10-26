@@ -1,6 +1,6 @@
 {
   "name": "react-clear-modal",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple and lightweight modal component for React.js",
   "files": [
     "dist/"
