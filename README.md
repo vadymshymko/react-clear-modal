@@ -48,6 +48,8 @@ function ReactClearModalExample() {
 
   return (
     <div>
+      <button type="button" title="Open" onClick={openModal}>Open</button>
+
       <ReactClearModal
         {/* here you can also pass any other element attributes. */}
         isOpen={isModalOpen}
@@ -55,7 +57,7 @@ function ReactClearModalExample() {
       >
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Id beatae quia, neque modi libero quidem ipsum architecto, incidunt molestias culpa, totam accusantium reprehenderit animi voluptas magni alias error commodi ut.
-        <div>
+        </div>
 
         <button type="button" title="Close" onClick={closeModal}>Close</button>
       </ReactClearModal>
