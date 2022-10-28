@@ -71,16 +71,19 @@ export default ReactClearModalExample;
 
 ## Props
 
-| Name                        | Type       | Default Value | Description                                                                                                      |
-| --------------------------- | ---------- | ------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **isOpen**                  | `boolean`  | `false`       | Is the modal open                                                                                                |
-| **onRequestClose**          | `function` |               | Callback to handle the request to close the modal                                                                |
-| **closeTimeout**            | `number`   |               | Time period in milliseconds after which the modal close function (`onRequestClose` prop) will be called          |
-| **preRender**               | `boolean`  | `false`       | Whether the modal window and its content must be present in the DOM when the `isOpen` property is set to `false` |
-| **contentProps**            | `object`   | `{}`          | DOM props (HTMLAttributes) for modal content wrapper div                                                         |
-| **disableCloseOnEsc**       | `boolean`  | `false`       | Prevent modal window from closing when `ESC` key is pressed                                                      |
-| **disableCloseOnBgClick**   | `boolean`  | `false`       | Prevent modal from closing after clicking on modal background                                                    |
-| **disableBodyScrollOnOpen** | `boolean`  | `false`       | Set `{overflow: hidden}` for `document.body` when modal is open                                                  |
+| Name                        | Type          | Default Value   | Description                                                                                                      |
+| --------------------------- | ------------- | --------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **isOpen**                  | `boolean`     | `false`         | Is the modal open                                                                                                |
+| **onRequestClose**          | `function`    |                 | Callback to handle the request to close the modal                                                                |
+| **closeTimeout**            | `number`      |                 | Time period in milliseconds after which the modal close function (`onRequestClose` prop) will be called          |
+| **preRender**               | `boolean`     | `false`         | Whether the modal window and its content must be present in the DOM when the `isOpen` property is set to `false` |
+| **contentProps**            | `object`      | `{}`            | DOM props (HTMLAttributes) for modal content wrapper div                                                         |
+| **disableCloseOnEsc**       | `boolean`     | `false`         | Prevent modal window from closing when `ESC` key is pressed                                                      |
+| **disableCloseOnBgClick**   | `boolean`     | `false`         | Prevent modal from closing after clicking on modal background                                                    |
+| **disableBodyScrollOnOpen** | `boolean`     | `false`         | Set `{overflow: hidden}` for `document.body` when modal is open                                                  |
+| **renderInPortal**          | `boolean`     | `false`         | Enable render modal in portal                                                                                    |
+| **portalContainer**         | `HTMLElement` | `document.body` | portal container element (ignored if `renderInPortal` is set to false)                                           |
+| ...                         | `object`      | `{}`            | DOM props (HTMLAttributes) for modal container div                                                               |
 
 ## Demo
 

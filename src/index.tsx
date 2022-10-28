@@ -10,7 +10,9 @@ import React, {
   useCallback,
   useEffect,
   useRef,
+  useState,
 } from 'react';
+import { createPortal } from 'react-dom';
 
 export type ReactClearModalProps = {
   isOpen: boolean;
@@ -23,6 +25,8 @@ export type ReactClearModalProps = {
   disableCloseOnEsc?: boolean;
   disableCloseOnBgClick?: boolean;
   disableBodyScrollOnOpen?: boolean;
+  renderInPortal?: boolean;
+  portalContainer?: HTMLElement;
 } & HTMLAttributes<HTMLDivElement>;
 
 function ReactClearModal({
@@ -36,8 +40,13 @@ function ReactClearModal({
   disableCloseOnEsc,
   disableCloseOnBgClick,
   disableBodyScrollOnOpen,
+  renderInPortal = false,
+  portalContainer,
   ...wrapperProps
 }: ReactClearModalProps) {
+  const [isRenderInPortalEnabled, setIsRenderInPortalEnabled] = useState(
+    typeof window !== 'undefined'
+  );
   const closeTimeoutRef = useRef<any>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -76,6 +85,51 @@ function ReactClearModal({
     [contentProps, onRequestClose, disableCloseOnEsc]
   );
 
+  const renderContent = useCallback(() => {
+    if (!isOpen && !preRender) {
+      return null;
+    }
+
+    return (
+      <div
+        {...wrapperProps}
+        style={{
+          alignItems: 'center',
+          bottom: 0,
+          display: isOpen ? 'flex' : 'none',
+          left: 0,
+          overflow: 'auto',
+          position: 'fixed',
+          right: 0,
+          top: 0,
+          ...wrapperProps.style,
+        }}
+        onClick={handleWrapperClick}
+      >
+        <div
+          {...contentProps}
+          style={{
+            margin: 'auto',
+            ...contentProps.style,
+          }}
+          onKeyDown={handleContentKeyDown}
+          tabIndex={-1}
+          ref={contentRef}
+        >
+          {children}
+        </div>
+      </div>
+    );
+  }, [
+    children,
+    contentProps,
+    handleContentKeyDown,
+    handleWrapperClick,
+    isOpen,
+    wrapperProps,
+    preRender,
+  ]);
+
   useEffect(() => {
     if (closeTimeout && onRequestClose) {
       closeTimeoutRef.current = setTimeout(onRequestClose, closeTimeout);
@@ -104,44 +158,21 @@ function ReactClearModal({
     };
   }, [isOpen, disableBodyScrollOnOpen]);
 
-  if (!isOpen && !preRender) {
+  useEffect(() => {
+    if (renderInPortal) {
+      setIsRenderInPortalEnabled(true);
+    }
+  }, [renderInPortal]);
+
+  if (renderInPortal) {
+    if (isRenderInPortalEnabled) {
+      return createPortal(renderContent(), portalContainer || document.body);
+    }
+
     return null;
   }
 
-  return (
-    <div
-      {...wrapperProps}
-      style={{
-        alignItems: 'center',
-        bottom: 0,
-        display: isOpen ? 'flex' : 'none',
-        left: 0,
-        overflow: 'auto',
-        position: 'fixed',
-        right: 0,
-        top: 0,
-        zIndex: 999,
-        ...wrapperProps.style,
-      }}
-      onClick={handleWrapperClick}
-    >
-      <div
-        {...contentProps}
-        style={{
-          margin: 'auto',
-          position: 'relative',
-          zIndex: 1,
-          ...contentProps.style,
-        }}
-        onKeyDown={handleContentKeyDown}
-        role="dialog"
-        tabIndex={-1}
-        ref={contentRef}
-      >
-        {children}
-      </div>
-    </div>
-  );
+  return renderContent();
 }
 
 export default memo(ReactClearModal);
