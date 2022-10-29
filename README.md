@@ -5,7 +5,7 @@
 [![typescript](https://badgen.net/npm/types/react-clear-modal)](https://unpkg.com/react-clear-modal/dist/index.d.ts)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vadymshymko/react-clear-modal/blob/master/LICENSE)
 
-Simple and lightweight modal component for React.js
+Simple and lightweight, fully controlled isomorphic (with SSR support) modal component for React.js
 
 ## Table of contents
 
@@ -71,19 +71,19 @@ export default ReactClearModalExample;
 
 ## Props
 
-| Name                        | Type          | Default Value   | Description                                                                                                      |
-| --------------------------- | ------------- | --------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **isOpen**                  | `boolean`     | `false`         | Is the modal open                                                                                                |
-| **onRequestClose**          | `function`    |                 | Callback to handle the request to close the modal                                                                |
-| **closeTimeout**            | `number`      |                 | Time period in milliseconds after which the modal close function (`onRequestClose` prop) will be called          |
-| **preRender**               | `boolean`     | `false`         | Whether the modal window and its content must be present in the DOM when the `isOpen` property is set to `false` |
-| **contentProps**            | `object`      | `{}`            | DOM props (HTMLAttributes) for modal content wrapper div                                                         |
-| **disableCloseOnEsc**       | `boolean`     | `false`         | Prevent modal window from closing when `ESC` key is pressed                                                      |
-| **disableCloseOnBgClick**   | `boolean`     | `false`         | Prevent modal from closing after clicking on modal background                                                    |
-| **disableBodyScrollOnOpen** | `boolean`     | `false`         | Set `{overflow: hidden}` for `document.body` when modal is open                                                  |
-| **renderInPortal**          | `boolean`     | `false`         | Enable render modal in portal                                                                                    |
-| **portalContainer**         | `HTMLElement` | `document.body` | portal container element (ignored if `renderInPortal` is set to false)                                           |
-| ...                         | `object`      | `{}`            | DOM props (HTMLAttributes) for modal container div                                                               |
+| Name                        | Type                    | Default Value   | Description                                                                                                                                                                                                    |
+| --------------------------- | ----------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **isOpen**                  | `boolean`               | `false`         | Is the modal open                                                                                                                                                                                              |
+| **onRequestClose**          | `function`              |                 | The function that will be called to close the modal window when the ESC button is pressed (if `disableCloseOnEsc` !== true) or an area outside of the content is clicked (if `disableCloseOnBgClick` !== true) |
+| **closeTimeout**            | `number`                |                 | Time period in milliseconds after which the modal close function (`onRequestClose` prop) will be called                                                                                                        |
+| **preRender**               | `boolean`               | `false`         | Whether the modal window and its content must be present in the DOM when the `isOpen` property is set to `false`                                                                                               |
+| **contentProps**            | `object`                | `{}`            | DOM props (HTMLAttributes) for modal content wrapper div                                                                                                                                                       |
+| **parentElement**           | `string`\|`HTMLElement` | `document.body` | Modal Portal container element (`HTMLElement`) or css selector (`string`). Ignored if `disableRenderInPortal` is set to `true`                                                                                 |
+| **disableCloseOnEsc**       | `boolean`               | `false`         | Prevent modal window from closing when `ESC` key is pressed                                                                                                                                                    |
+| **disableCloseOnBgClick**   | `boolean`               | `false`         | Prevent modal from closing after clicking on modal background                                                                                                                                                  |
+| **disableBodyScrollOnOpen** | `boolean`               | `false`         | Set `{overflow: hidden}` for `document.body` when modal is open                                                                                                                                                |
+| **disableRenderInPortal**   | `boolean`               | `false`         | Prevent render modal in portal (if `true` it will be rendered directly inside parent component)                                                                                                                |
+| ...                         | `object`                | `{}`            | DOM props (HTMLAttributes) for modal container div                                                                                                                                                             |
 
 ## Demo
 

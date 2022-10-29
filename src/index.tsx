@@ -15,37 +15,37 @@ import React, {
 import { createPortal } from 'react-dom';
 
 export type ReactClearModalProps = {
-  isOpen: boolean;
+  isOpen?: boolean;
   onRequestClose?: () => void;
   closeTimeout?: number;
   preRender?: boolean;
   contentProps?: HTMLAttributes<HTMLDivElement>;
   children: ReactNode;
+  parentElement?: HTMLElement | string;
   disableFocusOnContent?: boolean;
   disableCloseOnEsc?: boolean;
   disableCloseOnBgClick?: boolean;
   disableBodyScrollOnOpen?: boolean;
-  renderInPortal?: boolean;
-  portalContainer?: HTMLElement;
+  disableRenderInPortal?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 function ReactClearModal({
-  isOpen,
+  isOpen = false,
   onRequestClose,
   closeTimeout,
   preRender = false,
   contentProps = {},
   children,
+  parentElement,
   disableFocusOnContent,
   disableCloseOnEsc,
   disableCloseOnBgClick,
   disableBodyScrollOnOpen,
-  renderInPortal = false,
-  portalContainer,
+  disableRenderInPortal,
   ...wrapperProps
 }: ReactClearModalProps) {
-  const [isRenderInPortalEnabled, setIsRenderInPortalEnabled] = useState(
-    typeof window !== 'undefined'
+  const [isReadyForRender, setIsReadyForRender] = useState(
+    !disableRenderInPortal || typeof window !== 'undefined'
   );
   const closeTimeoutRef = useRef<any>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -159,20 +159,31 @@ function ReactClearModal({
   }, [isOpen, disableBodyScrollOnOpen]);
 
   useEffect(() => {
-    if (renderInPortal) {
-      setIsRenderInPortalEnabled(true);
+    if (!disableRenderInPortal) {
+      setIsReadyForRender(true);
     }
-  }, [renderInPortal]);
+  }, [disableRenderInPortal]);
 
-  if (renderInPortal) {
-    if (isRenderInPortalEnabled) {
-      return createPortal(renderContent(), portalContainer || document.body);
+  if (isReadyForRender) {
+    if (disableRenderInPortal) {
+      return renderContent();
     }
 
-    return null;
+    const portalContainerDomElement =
+      // eslint-disable-next-line no-nested-ternary
+      typeof parentElement === 'string'
+        ? parentElement
+          ? document.querySelector(parentElement)
+          : null
+        : parentElement;
+
+    return createPortal(
+      renderContent(),
+      portalContainerDomElement || document.body
+    );
   }
 
-  return renderContent();
+  return null;
 }
 
 export default memo(ReactClearModal);
