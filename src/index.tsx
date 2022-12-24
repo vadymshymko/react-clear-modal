@@ -45,7 +45,7 @@ function ReactClearModal({
   ...wrapperProps
 }: ReactClearModalProps) {
   const [isReadyForRender, setIsReadyForRender] = useState(
-    !disableRenderInPortal || typeof window !== 'undefined'
+    disableRenderInPortal
   );
   const closeTimeoutRef = useRef<any>(null);
   const contentRef = useRef<HTMLDivElement>(null);
