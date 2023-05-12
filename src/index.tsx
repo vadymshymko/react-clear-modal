@@ -42,6 +42,8 @@ function ReactClearModal({
   disableCloseOnBgClick,
   disableBodyScrollOnOpen,
   disableRenderInPortal,
+  onClick,
+  style,
   ...wrapperProps
 }: ReactClearModalProps) {
   const [isReadyForRender, setIsReadyForRender] = useState(
@@ -52,8 +54,8 @@ function ReactClearModal({
 
   const handleWrapperClick = useCallback(
     (event: MouseEvent<HTMLDivElement>) => {
-      if (wrapperProps.onClick) {
-        wrapperProps.onClick(event);
+      if (onClick) {
+        onClick(event);
       }
 
       if (
@@ -65,7 +67,7 @@ function ReactClearModal({
         onRequestClose();
       }
     },
-    [wrapperProps, onRequestClose, disableCloseOnBgClick]
+    [onClick, onRequestClose, disableCloseOnBgClick]
   );
 
   const handleContentKeyDown = useCallback(
@@ -102,7 +104,7 @@ function ReactClearModal({
           position: 'fixed',
           right: 0,
           top: 0,
-          ...wrapperProps.style,
+          ...(style || {}),
         }}
         onClick={handleWrapperClick}
       >
@@ -127,6 +129,7 @@ function ReactClearModal({
     handleWrapperClick,
     isOpen,
     wrapperProps,
+    style,
     preRender,
   ]);
 
