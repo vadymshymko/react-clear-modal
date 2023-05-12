@@ -1,6 +1,6 @@
 {
   "name": "react-clear-modal",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "Simple and lightweight, fully controlled isomorphic (with SSR support) modal component for React.js",
   "files": [
     "dist/"
@@ -10,8 +10,7 @@
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "rm -rf dist && yarn lint && yarn generate-types && rollup -c",
-    "generate-types": "tsc --emitDeclarationOnly",
+    "build": "rm -rf dist && yarn lint && rollup -c",
     "lint": "eslint . --ext .tsx",
     "prepare": "husky install",
     "prepublish": "yarn build",
@@ -40,18 +39,14 @@
   },
   "homepage": "https://github.com/vadymshymko/react-clear-modal#readme",
   "devDependencies": {
-    "@babel/cli": "^7.17.10",
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.17.10",
-    "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
-    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.1",
+    "@rollup/plugin-typescript": "^11.1.0",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^8.33.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -65,11 +60,8 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rollup": "^3.13.0",
-    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.5.0",
     "typescript": "^5.0.2"
-  },
-  "dependencies": {
-    "core-js": "^3.27.2"
   },
   "peerDependencies": {
     "@types/react": "^16.8 || ^17 || ^18",

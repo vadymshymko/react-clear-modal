@@ -1,7 +1,7 @@
 # react-clear-modal
 
 [![npm version](https://img.shields.io/npm/v/react-clear-modal)](https://www.npmjs.com/package/react-clear-modal)
-[![minified + gzip](https://img.shields.io/bundlephobia/minzip/react-clear-modal/latest)](https://bundlephobia.com/package/react-clear-modal)
+[![minified + gzip](https://img.shields.io/bundlephobia/minzip/react-clear-modal/latest)](https://bundlephobia.com/package/react-clear-modal@latest)
 [![typescript](https://badgen.net/npm/types/react-clear-modal)](https://unpkg.com/react-clear-modal/dist/index.d.ts)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vadymshymko/react-clear-modal/blob/master/LICENSE)
 
