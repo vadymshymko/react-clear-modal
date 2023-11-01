@@ -1,6 +1,6 @@
 {
   "name": "react-clear-modal",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Simple and lightweight, fully controlled isomorphic (with SSR support) modal component for React.js",
   "files": [
     "dist/"
