@@ -40,7 +40,7 @@
   "homepage": "https://github.com/vadymshymko/react-clear-modal#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.1",
     "@rollup/plugin-typescript": "^11.1.0",
     "@types/react": "^19.0.2",
