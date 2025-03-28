@@ -1,17 +1,43 @@
-# Security Policy
+# Contributing Guidelines
 
-## Supported Versions
+Thank you for considering contributing to this project!  
+Your help is highly appreciated. Please take a moment to review these guidelines before submitting a pull request or issue.
 
-Currently, only the latest minor version of the project is supported.
+## Getting Started
 
-| Version        | Supported          |
-| -------------- | ------------------ |
-| latest minor   | :white_check_mark: |
-| older versions | :x:                |
+- Make sure you have the latest version of the project cloned.
+- Create a new branch for your changes:
 
-## Reporting a Vulnerability
+```
+git checkout -b feature/your-feature-name
+```
 
-This project uses [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically) to automatically monitor for updates and detect vulnerabilities in dependencies.
+- Make your changes and commit them with clear and meaningful commit messages.
+- Push to your fork and submit a pull request.
 
-If you discover a vulnerability, please open a pull request with the appropriate update or fix.  
-We will review the PR as soon as possible. If necessary, feel free to leave a comment with additional details.
+## Pull Request Process
+
+1. Ensure your PR is focused and includes only relevant changes.
+2. If your changes fix a bug or add a feature, please describe them clearly in the PR description.
+3. Include related issue numbers if applicable (e.g., `Fixes #123`).
+4. Keep code style consistent with the project.
+5. If applicable, update documentation and tests.
+
+## Reporting Issues
+
+If you find a bug or want to request a feature:
+- Check if it hasn’t already been reported or requested.
+- Open a new issue with a clear title and detailed description.
+
+## Dependency Updates
+
+This project uses [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically).  
+If you want to help by updating dependencies, feel free to open a pull request with the version bump.
+
+## Code of Conduct
+
+Be respectful and inclusive. All contributions must follow the community’s [Code of Conduct](CODE_OF_CONDUCT.md) (if available).
+
+---
+
+Thank you again for helping make this project better!
