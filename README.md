@@ -28,6 +28,12 @@ npm install react-clear-modal --save
 yarn add react-clear-modal
 ```
 
+**pnpm**
+
+```bash
+pnpm add react-clear-modal
+```
+
 ## Usage
 
 #### Basic Example:
