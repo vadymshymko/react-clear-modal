@@ -1,0 +1,4 @@
+overrides:
+  brace-expansion@<1.1.13: '>=1.1.13'
+  picomatch@>=4.0.0 <4.0.4: '>=4.0.4'
+  serialize-javascript@<7.0.5: '>=7.0.5'
